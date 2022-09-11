@@ -35,6 +35,13 @@ Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false
 
+// 引入api
+import API from '@/api/index'
+Vue.prototype.$API = API
+
+// 引入三级联动下拉框
+import Catergory from './components/Catergory'
+Vue.component(Catergory.name, Catergory)
 new Vue({
   el: '#app',
   router,
