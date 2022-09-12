@@ -30,21 +30,26 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+// 把项目中的路由进行拆分
+// 常量路由：不管什么用户都可以看见
 export const constantRoutes = [
 
   {
+    // 登录
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
   },
 
   {
+    // 错误
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
 
   {
+    // 首页
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -56,6 +61,9 @@ export const constantRoutes = [
     }]
   },
 
+]
+// 异步路由：有权限的用户才能看见
+export const asyncRoutes = [
   {
     path: '/product',
     component: Layout,
@@ -87,8 +95,10 @@ export const constantRoutes = [
         meta: { title: 'sku管理' }
       },
 
+
     ]
   },
+
   {
     name: 'Acl',
     path: '/acl',
@@ -135,6 +145,29 @@ export const constantRoutes = [
       },
     ]
   },
+  {
+    name: 'Test',
+    path: '/test',
+    component: Layout,
+    redirect: '/test/test1',
+    meta: { title: '测试管理', icon: 'el-icon-s-tools' },
+    children: [{
+      name: 'Test1',
+      path: 'test1',
+      component: () => import('@/views/test/test1'),
+      meta: { title: '测试管理1' }
+    }, {
+      name: 'Test2',
+      path: 'test2',
+      component: () => import('@/views/test/test2'),
+      meta: { title: '测试管理2' }
+    },
+    ]
+  }
+]
+
+// 任意路由:当路径出现错误重定向到404
+export const anyRoutes = [
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
