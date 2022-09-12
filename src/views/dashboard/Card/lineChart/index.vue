@@ -37,7 +37,7 @@ export default {
               colorStops: [
                 {
                   offset: 0,
-                  color: "purple", // 0% 处的颜色
+                  color: "blue", // 0% 处的颜色
                 },
                 {
                   offset: 1,

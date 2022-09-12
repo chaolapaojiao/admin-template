@@ -3,10 +3,16 @@ import * as trademark from '@/api/product/trademark'
 import * as attr from '@/api/product/attr'
 import * as spu from '@/api/product/spu'
 import * as sku from '@/api/product/sku'
+import permission from '@/api/acl/permission'
+import role from '@/api/acl/role'
+import * as user from '@/api/acl/user'
 
 export default {
     trademark,
     attr,
     spu,
-    sku
+    sku,
+    permission,
+    role,
+    user
 }
